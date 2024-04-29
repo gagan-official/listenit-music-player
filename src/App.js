@@ -40,3 +40,6 @@ function App() {
 }
 
 export default App;
+
+// How to deploy a folder inside repo in Netlify:
+// https://answers.netlify.com/t/how-to-deploy-a-folder-inside-a-repository-in-github/71320
