@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+// import React,{useState} from 'react';
 import styles from "./Like.module.css";
 
 const Like = (props) => {
-    const [likeData,setLikeData]=useState([]);
+    // const [likeData,setLikeData]=useState([]);
+    const likeData=[];
     const noLikeComp="Oops, you haven't liked any song yet!";
     const likeComp="Data is here!";
 

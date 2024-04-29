@@ -10,18 +10,18 @@ const Search = (props) => {
     const val=location.state.inputVal
     const resultSuccessJsx=<p>results:&nbsp;{songData.length}</p>
     const resultJsx=<p>Sorry, can't able to find your search request `{val}` :(</p>
-    const getData=()=>{
-        let url=`https://itunes.apple.com/search?term=${val}&media=music&entity=song&limit=12&country=in`
-        let p=axios.get(url);
-        p.then((res)=>{
-            console.log(res);
-            setSongData(res.data.results)
-        }).catch((err)=>{
-            console.log(err);
-        })
-    }
     
     useEffect(()=>{
+        const getData=()=>{
+            let url=`https://itunes.apple.com/search?term=${val}&media=music&entity=song&limit=12&country=in`
+            let p=axios.get(url);
+            p.then((res)=>{
+                console.log(res);
+                setSongData(res.data.results)
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
         getData();
     },[val])
 

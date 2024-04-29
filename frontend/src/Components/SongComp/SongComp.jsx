@@ -10,6 +10,8 @@ function SongComp(props) {
   const clickEvent=()=>{
       setSongForSongPlayer(props.song);
   }
+  
+  console.log(songForSongPlayer);
 
   return (
     <div

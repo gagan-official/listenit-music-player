@@ -1,14 +1,15 @@
-import axios from "axios";
-import React, { useContext,useState } from "react";
+// import axios from "axios";
+import React, { useContext } from "react";
 import localContext from "../../Context/localContext";
 import styles from "./SongPlayer.module.css";
 
 
 function SongPlayer(props) {
-  const {song, like}=useContext(localContext);
-  const [songForSongPlayer, setSongForSongPlayer]=song;
-  const [likedSongData,setLikedSongData]=like;
-  const [likeBoolState,setLikeBoolState]=useState(false)
+  // const {song, like}=useContext(localContext);
+  const {song}=useContext(localContext);
+  const [songForSongPlayer]=song;
+  // const [likedSongData,setLikedSongData]=like;
+  // const [likeBoolState,setLikeBoolState]=useState(false)
 
   let songName = songForSongPlayer.trackName;
   let artist = songForSongPlayer.artistName||songForSongPlayer.artist;
@@ -18,19 +19,19 @@ function SongPlayer(props) {
   // let likeBool=songForSongPlayer.likeBool
 
 
-  const toogleLike=(songForSongPlayer)=>{
-    let likeId=songForSongPlayer.id||songForSongPlayer.trackName
-    setLikeBoolState((x)=>!x)
+  // const toogleLike=(songForSongPlayer)=>{
+  //   let likeId=songForSongPlayer.id||songForSongPlayer.trackName
+  //   setLikeBoolState((x)=>!x)
       
-      // console.log(songForSongPlayer)
-    if(likeBoolState===false){
-        console.log(likeBoolState," msg from tooglelike")
-        // setLikedSongData([...likedSongData,songForSongPlayer])
-    }
-    else{
-      console.log(likeBoolState," msg from tooglelike")
-    }
-  }
+  //     // console.log(songForSongPlayer)
+  //   if(likeBoolState===false){
+  //       console.log(likeBoolState," msg from tooglelike")
+  //       // setLikedSongData([...likedSongData,songForSongPlayer])
+  //   }
+  //   else{
+  //     console.log(likeBoolState," msg from tooglelike")
+  //   }
+  // }
 
   return (
     <div className={styles.songPlayerCont}>
@@ -39,18 +40,18 @@ function SongPlayer(props) {
         <div className={styles.songName_HeartCont_n_audTag_Cont}>
           <div className={styles.songName_HeartCont}>
             <div className={styles.songNameCont}>
-              <span className={styles.songNameClass}>
-                <MarqueeComp marq={songName && true}>{songName ? songName : "No Song Playing"}</MarqueeComp>
-              </span>
-              <span className={styles.artist_n_Movie}>
-                <span className={styles.artist}>
-                  <MarqueeComp marq={artist && true}>{artist ? artist : "Artist Name"}</MarqueeComp>
-                </span>
-                &nbsp;<span className={styles.pipe}>|</span>&nbsp;
-                <span className={styles.movie}>
-                  <MarqueeComp marq={movie && true}>{movie ? movie : "Movie Name"}</MarqueeComp>
-                </span>
-              </span>
+              <div className={styles.songNameClass}>
+                <MarqueeComp marq={songName}>{songName ? songName : "No Song Playing"}</MarqueeComp>
+              </div>
+              <div className={styles.artist_n_Movie}>
+                <div className={styles.artist}>
+                  <MarqueeComp marq={artist}>{artist ? artist : "Artist Name"}</MarqueeComp>
+                </div>
+                <span className={styles.pipe}>|</span>
+                <div className={styles.movie}>
+                  <MarqueeComp marq={movie}>{movie ? movie : "Movie Name"}</MarqueeComp>
+                </div>
+              </div>
             </div>
             {/* ------------- Commented out the WIDTH also of class .songNameCont at line no. 35 in SongPlayer.module.css ------------- */}
             {/* <span className={styles.heart} onClick={()=>toogleLike(songForSongPlayer)}>
@@ -74,12 +75,12 @@ function SongPlayer(props) {
   );
 }
 
-export const MarqueeComp = (props) => {
+const MarqueeComp = (props) => {
   if (props.marq) {
     return (
-      <marquee style={props.style} scrollamount={props.scrollAmount? props.scrollAmount : 1}>
+      <div className={styles.runningText}>
         {props.children}
-      </marquee>
+      </div>
     );
   } else {
       return props.children;
