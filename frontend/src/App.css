@@ -1,56 +1,122 @@
-:root {
-  --libContBgc: #D9D9D9;
-  --arrContBgc: #878787;
+body.light {
+  --compsBgc: #ffffffa8;
+  --iconColor: #505050;
+  --hoverBgc: #e3e3e3;
+  --cardBgc: #d9d9d9;
+
+  --inputBackgroundColor: #fff;
+  --inputTextColor: #000;
+  --fontWeight: 500;
+  
+  --borderColor: #d4d4d4;
+  --sharpBorderColor: #000;
+  
   --playBtnBgc: #878787;
   --lightFontColor: #fff;
   --songContBgc: rgb(107, 107, 107);
+
+  --playerInnerBgc: #F1F3F4;
+
+  --boxShadowColor: rgba(0, 0, 0, 0.25);
+
+  --pageBackgroundColor: #fff;
+  
+  background-color: var(--pageBackgroundColor);
+  transition: .2s;
+  transition-property: background-color;
 }
+body.dark {
+  --compsBgc: #141414a8;
+  --iconColor: #c1c1c1;
+  --hoverBgc: #262626;
+  --cardBgc: #424242;
+
+  --inputBackgroundColor: #2e2e2e;
+  --inputTextColor: #fff;
+  --fontWeight: normal;
+  
+  --borderColor: #343434;
+  --sharpBorderColor: #fff;
+  
+  --playBtnBgc: #878787;
+  --lightFontColor: #fff;
+  --songContBgc: rgb(107, 107, 107);
+
+  --playerInnerBgc: #363636;
+  
+  --boxShadowColor: rgba(107, 107, 107, 0.25);
+  
+  --pageBackgroundColor: #141414;
+  
+  background-color: var(--pageBackgroundColor);
+  transition: .2s;
+  transition-property: background-color;
+}
+
+/* @media (prefers-color-scheme: light) {
+  body.light {
+    --compsBgc: #ffffffa8;
+    --iconColor: #505050;
+    --hoverBgc: #e3e3e3;
+    --cardBgc: #d9d9d9;
+  
+    --inputBackgroundColor: #fff;
+    --inputTextColor: #000;
+    --fontWeight: 500;
+    
+    --borderColor: #d4d4d4;
+    --sharpBorderColor: #000;
+    
+    --playBtnBgc: #878787;
+    --lightFontColor: #fff;
+    --songContBgc: rgb(107, 107, 107);
+  
+    --playerInnerBgc: #F1F3F4;
+  
+    --boxShadowColor: rgba(0, 0, 0, 0.25);
+  
+    --pageBackgroundColor: #fff;
+    
+    background-color: var(--pageBackgroundColor);
+    transition: .2s;
+    transition-property: background-color;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body.dark {
+    --compsBgc: #141414a8;
+    --iconColor: #c1c1c1;
+    --hoverBgc: #262626;
+    --cardBgc: #424242;
+  
+    --inputBackgroundColor: #2e2e2e;
+    --inputTextColor: #fff;
+    --fontWeight: normal;
+    
+    --borderColor: #343434;
+    --sharpBorderColor: #fff;
+    
+    --playBtnBgc: #878787;
+    --lightFontColor: #fff;
+    --songContBgc: rgb(107, 107, 107);
+  
+    --playerInnerBgc: #363636;
+    
+    --boxShadowColor: rgba(107, 107, 107, 0.25);
+    
+    --pageBackgroundColor: #141414;
+    
+    background-color: var(--pageBackgroundColor);
+    transition: .2s;
+    transition-property: background-color;
+  }
+} */
+
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Inter', 'sans-serif';
-}
-
-.App {
-  text-align: center;
-  width: 100%;
-  position: relative;
-  padding: 2rem;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

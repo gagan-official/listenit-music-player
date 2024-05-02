@@ -5,8 +5,9 @@
     margin-bottom: 2rem;
 }
 .libCont {
-    background-color: lightgrey;
-    padding: 1.5rem;
+    --gaps: 1rem;
+    background-color: var(--cardBgc);
+    padding: var(--gaps);
     padding-top: 2.7rem;
     border-radius: 20px;
     width: 100%;
@@ -16,10 +17,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--gaps);
     overflow: auto;
     scroll-behavior: smooth;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px var(--boxShadowColor);
 }
 .libCont::-webkit-scrollbar {
     display: none;
@@ -35,29 +36,41 @@
     cursor: pointer;
     font-size: 1.5rem;
     box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+    --position: -1rem;
 }
 .arrCont:hover {
     opacity: .7;
     box-shadow: -2px 0px 10px 3px rgba(0, 0, 0, 0.3);
 }
 .right {
-    right: 0.5rem;
+    right: var(--position);
 }
 .left {
-    left: 0.5rem;
+    left: var(--position);
     transform: rotate(180deg);
 }
-.outerLibCont h3{
+.heading{
     position: absolute;
-    top: 5px;
+    top: .6rem;
     left: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
-    width: 100%;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: 500;
+    border-top: 1px solid var(--sharpBorderColor);
+    --marginWidthValue: 1rem;
+    width: calc(100% - calc(var(--marginWidthValue) * 2));
+    margin: .5rem var(--marginWidthValue);
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); */
+}
+.heading::before{
+    content: attr(customTitle);
+    position: absolute;
+    padding: 0 .8rem;
+    font-size: 1.1rem;
+    background-color: var(--cardBgc);
+    color: var(--inputTextColor);
+    font-weight: var(--fontWeight);
 }
 
 @media only screen and (max-width: 800px), (max-height: 600px) {

@@ -3,7 +3,9 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: lightgrey;
+    background-color: var(--playerInnerBgc);
+    color: var(--iconColor);
+    border-top: 1px solid var(--borderColor);
     justify-content: space-between;
     padding: 1rem;
     font-size: 1.25rem;

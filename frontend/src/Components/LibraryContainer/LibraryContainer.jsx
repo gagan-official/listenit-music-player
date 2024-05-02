@@ -14,7 +14,7 @@ function LibraryContainer(props) {
   // console.log(props.data);
   return (
     <div className={styles.outerLibCont}>
-      <h3>{props.head}</h3>
+      <span className={styles.heading} customTitle={props.head} />
       <div
           ref={libContRef}
           className={styles.libCont}>

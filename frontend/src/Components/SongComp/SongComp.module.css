@@ -1,8 +1,8 @@
 .songCont {
-    background-color: var(--songContBgc);
+    background-color: var(--compsBgc);
     padding: 1rem;
-    border-radius: 15px;
-    min-width: 28vw;
+    border-radius: 10px;
+    min-width: 24rem;
     aspect-ratio: 16/9;
     position: relative;
     display: flex;
@@ -12,7 +12,7 @@
     background-size: cover;
     overflow: hidden;
     image-rendering: high-quality;
-    transition: .5s;
+    transition: transform .5s;
 }
 .songCont:hover {
     transform: scale(1.04);
