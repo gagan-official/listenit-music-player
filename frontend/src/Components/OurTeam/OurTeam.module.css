@@ -37,11 +37,26 @@
     font-size: 1.1rem;
     gap: .5rem;
 }
-.ourTeamCard img{
+.ourTeamCardImg{
     height: 160px;
+    min-width: 160px;
     aspect-ratio: 1/1;
     pointer-events: none;
     user-select: none;
+    border-radius: 50%;
+}
+.ourTeamCardImgLoader{
+    box-shadow: 0 0 5px rgba(0,0,0,.25);
+    background-color: var(--hoverBgc);
+}
+.loadingContent{
+    width: 100%;
+    max-width: 300px;
+}
+.loadingContent span{
+    height: 21px;
+    background-color: var(--hoverBgc);
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 950px), (max-height: 600px) {
@@ -52,6 +67,9 @@
     }
 }
 @media only screen and (max-width: 500px) {
+    .ourTeamCard {
+        min-height: 22rem;
+    }
     .ourTeamCard {
         flex-direction: column-reverse !important;
         background-image: conic-gradient(from -45deg at 50%45%, #0000 90deg, var(--pageBackgroundColor) 0) !important;

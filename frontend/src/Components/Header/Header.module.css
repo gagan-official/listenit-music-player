@@ -14,6 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem;
     width: 100%;
     list-style-type: none;
     font-size: 1.5rem;
@@ -122,17 +123,17 @@ li.themeButton:hover {
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 1050px), (max-height: 600px) {
-    .input input{
-        padding-left: 2.5rem;
-    }
-}
 @media only screen and (max-width: 600px), (max-height: 600px) {
+    .nav{
+        backdrop-filter: none;
+        margin-bottom: 0;
+    }
     .input{
         width: 100%;
+        max-width: none;
+        min-height: 39px;
     }
     .input input{
-        padding: .5rem 1rem .5rem 2.5rem;
         text-align: left;
     }
     .nav li[title="Menu"]{
@@ -155,6 +156,7 @@ li.themeButton:hover {
         opacity: 0;
         visibility: hidden;
         transition: .5s;
+        transition-property: padding, opacity, visibility, height;
     }
     .menuContActive {
         height: 197px;

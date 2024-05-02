@@ -1,37 +1,44 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LibraryContainer from "../LibraryContainer/LibraryContainer";
 import { apiURL } from "../../App";
+import localContext from "../../Context/localContext";
 
 const Home = (props) => {
+  const { loadingState } = useContext(localContext);
+  const { setLoading } = loadingState;
   const [randomSong, setRandomSong] = useState([]);
   const [topHitSong, setTopHitSong] = useState([]);
-
-  const getRandomData = () => {
-    axios
-      .get(`${apiURL}/randomSong`)
-      .then((res) => {
-        setRandomSong(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const getTopHitsData = () => {
-    axios
-      .get(`${apiURL}/topHitsSong`)
-      .then((res) => {
-        setTopHitSong(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   
   useEffect(() => {
+    const getRandomData = () => {
+      setLoading(true);
+      axios
+        .get(`${apiURL}/randomSong`)
+        .then((res) => {
+          setRandomSong(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    const getTopHitsData = () => {
+      setLoading(true);
+      axios
+        .get(`${apiURL}/topHitsSong`)
+        .then((res) => {
+          setTopHitSong(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
     getRandomData();
     getTopHitsData();
-  }, []);
+  }, [setLoading]);
 
   return (
     <div

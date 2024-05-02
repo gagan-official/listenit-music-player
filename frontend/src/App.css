@@ -1,5 +1,6 @@
 body.light {
   --compsBgc: #ffffffa8;
+  --reverseGradient: #14141434;
   --iconColor: #505050;
   --hoverBgc: #e3e3e3;
   --cardBgc: #d9d9d9;
@@ -27,6 +28,7 @@ body.light {
 }
 body.dark {
   --compsBgc: #141414a8;
+  --reverseGradient: #ffffff42;
   --iconColor: #c1c1c1;
   --hoverBgc: #262626;
   --cardBgc: #424242;
@@ -112,11 +114,33 @@ body.dark {
     transition-property: background-color;
   }
 } */
-
+/* View this link for enabling system's dark mode detection
+https://medium.com/hypersphere-codes/detecting-system-theme-in-javascript-css-react-f6b961916d48 */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Inter', 'sans-serif';
+}
+
+
+/* ####### Loading Skeleton Class ####### */
+.loader {
+  overflow: hidden;
+  position: relative;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(-45deg, #0000 30%, var(--reverseGradient) 50%, #0000 70%);
+  animation: move 1.5s linear infinite;
+}
+@keyframes move {
+  from { left:-400% }
+  to { left:400% }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
@@ -9,10 +9,11 @@ import OurTeam from "./Components/OurTeam/OurTeam";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import Search from "./Components/Search/Search";
 import SongPlayer from "./Components/SongPlayer/SongPlayer";
-import StateContext from "./Context/StateContext";
+import localContext from "./Context/localContext";
 
 function App() {
-  const [blur, setBlur] = useState();
+  const { blurState } = useContext(localContext);
+  const { blur } = blurState;
 
   const blurStyle = {
     filter: blur ? "blur(25px)" : "",
@@ -21,20 +22,18 @@ function App() {
   };
 
   return (
-    <StateContext>
-      <BrowserRouter>
-        <Header blurFunc={(bool) => setBlur(bool)} />
-        <Routes>
-          <Route path="/" element={<Home contStyle={blurStyle} />} />
-          <Route path="/search" element={<Search contStyle={blurStyle} />} />
-          <Route path="/ourTeam" element={<OurTeam contStyle={blurStyle} />} />
-          <Route path="/like" element={<Like contStyle={blurStyle} />} />
-          <Route path="*" element={<PageNotFound contStyle={blurStyle} />} />
-        </Routes>
-        <SongPlayer />
-        <Footer />
-      </BrowserRouter>
-    </StateContext>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home contStyle={blurStyle} />} />
+        <Route path="/search" element={<Search contStyle={blurStyle} />} />
+        <Route path="/ourTeam" element={<OurTeam contStyle={blurStyle} />} />
+        <Route path="/like" element={<Like contStyle={blurStyle} />} />
+        <Route path="*" element={<PageNotFound contStyle={blurStyle} />} />
+      </Routes>
+      <SongPlayer />
+      <Footer />
+    </BrowserRouter>
   );
 }
 

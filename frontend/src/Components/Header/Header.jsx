@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import styles from "./Header.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -8,9 +8,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
 import { BsInfoCircle, BsInfoCircleFill } from "react-icons/bs";
 import { CiDark, CiLight } from "react-icons/ci";
+import localContext from "../../Context/localContext";
 
-const Header = (props) => {
-  const [blur, setBlur] = useState(false);
+const Header = () => {
+  const { blurState } = useContext(localContext);
+  const { blur, setBlur } = blurState;
+  //   const [blur, setBlur] = useState(false);
   const [theme, setTheme] = useState("dark");
   const location = useLocation();
 
@@ -18,12 +21,14 @@ const Header = (props) => {
 
   const inputPlaceholder = "Enter artist, album, song name to get results";
 
-  props.blurFunc(blur);
-
   //   Theme changing:
   const toggleTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
+
+  useEffect(() => {
+    !maxWidth600 && setBlur(false);
+  }, [maxWidth600, setBlur]);
 
   useEffect(() => {
     document.body.className = theme;
@@ -56,7 +61,9 @@ const Header = (props) => {
         </span>
         {!maxWidth600 && <SearchBar inputPlaceholder={inputPlaceholder} />}
         <span>
-          <li className={styles.themeButton} onClick={toggleTheme}>{theme==="dark" ? <CiDark /> : <CiLight/>}</li>
+          <li className={styles.themeButton} onClick={toggleTheme}>
+            {theme === "dark" ? <CiDark /> : <CiLight />}
+          </li>
           {/* <li><Link to="/like"><BsSuitHeart/></Link></li> */}
           {!maxWidth600 && (
             <>

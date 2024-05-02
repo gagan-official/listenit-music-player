@@ -20,7 +20,7 @@
     gap: var(--gaps);
     overflow: auto;
     scroll-behavior: smooth;
-    box-shadow: 0px 0px 10px var(--boxShadowColor);
+    /* box-shadow: 0px 0px 10px var(--boxShadowColor); */
 }
 .libCont::-webkit-scrollbar {
     display: none;
@@ -42,6 +42,9 @@
     opacity: .7;
     box-shadow: -2px 0px 10px 3px rgba(0, 0, 0, 0.3);
 }
+.arrCont:active {
+    scale: .9;
+}
 .right {
     right: var(--position);
 }
@@ -57,14 +60,14 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
-    border-top: 1px solid var(--sharpBorderColor);
+    border-top: 1px solid #a3a3a3;
     --marginWidthValue: 1rem;
     width: calc(100% - calc(var(--marginWidthValue) * 2));
     margin: .5rem var(--marginWidthValue);
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25); */
 }
 .heading::before{
-    content: attr(customTitle);
+    content: attr(customtitle);
     position: absolute;
     padding: 0 .8rem;
     font-size: 1.1rem;

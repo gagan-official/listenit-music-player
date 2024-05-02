@@ -4,10 +4,10 @@ import localContext from "../../Context/localContext";
 import styles from "./SongPlayer.module.css";
 
 
-function SongPlayer(props) {
+function SongPlayer() {
   // const {song, like}=useContext(localContext);
   const {song}=useContext(localContext);
-  const [songForSongPlayer]=song;
+  const { songForSongPlayer }=song;
   // const [likedSongData,setLikedSongData]=like;
   // const [likeBoolState,setLikeBoolState]=useState(false)
 
