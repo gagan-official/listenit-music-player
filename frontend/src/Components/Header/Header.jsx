@@ -110,6 +110,7 @@ const Header = () => {
             inputPlaceholder="Search your song"
             autoFocus={true}
             blur={blur}
+            setBlur={setBlur}
           />
 
           {/* ------------- Home Tab ------------- */}
@@ -169,6 +170,7 @@ const SearchBar = (props) => {
 
   const enterKey = (e) => {
     if (e.key === "Enter") {
+      props.setBlur(false);
       // console.log("enter is pressed! and the val: ",inputVal);
       navigate("/search", { state: { inputVal } });
     }

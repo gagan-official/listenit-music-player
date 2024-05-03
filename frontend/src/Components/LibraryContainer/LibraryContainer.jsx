@@ -17,25 +17,29 @@ function LibraryContainer(props) {
   return (
     <div className={styles.outerLibCont}>
       <span className={styles.heading} customtitle={props.head} />
-      <div ref={libContRef} className={styles.libCont}>
+      <div ref={libContRef} className={`${styles.libCont} ${props.libContClassName}`}>
         {!loading ? (
           props.data.map((i) => <SongComp key={i.id} song={i} />)
         ) : (
           <SongCompLoader />
         )}
       </div>
-      <span
-        onClick={() => scrollFunc(-500)}
-        className={`${styles.arrCont} ${styles.left}`}
-      >
-        <MdArrowForwardIos />
-      </span>
-      <span
-        onClick={() => scrollFunc(500)}
-        className={`${styles.arrCont} ${styles.right}`}
-      >
-        <MdArrowForwardIos />
-      </span>
+      {!props.noSideButtons && (
+        <>
+          <span
+            onClick={() => scrollFunc(-500)}
+            className={`${styles.arrCont} ${styles.left}`}
+          >
+            <MdArrowForwardIos />
+          </span>
+          <span
+            onClick={() => scrollFunc(500)}
+            className={`${styles.arrCont} ${styles.right}`}
+          >
+            <MdArrowForwardIos />
+          </span>
+        </>
+      )}
     </div>
   );
 }
