@@ -170,7 +170,7 @@ const SearchBar = (props) => {
 
   const enterKey = (e) => {
     if (e.key === "Enter") {
-      props.setBlur(false);
+        props.setBlur && props.setBlur(false);
       // console.log("enter is pressed! and the val: ",inputVal);
       navigate("/search", { state: { inputVal } });
     }
