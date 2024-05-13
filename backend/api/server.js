@@ -1,24 +1,21 @@
-const jsonServer = require("json-server"); // importing json-server library
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
-const port = process.env.PORT || 8080; //  chose port from here like 8080, 3001
+// See https://github.com/typicode/json-server#module
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router('db.json')
+const middlewares = jsonServer.defaults()
 
-server.use(middlewares);
-
-server.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-    "/product/:resource/:id/show": "/:resource/:id",
-  })
-);
-server.use(router);
-
-server.listen(port, () => {
-  console.log("JSON Server is running");
-});
+server.use(middlewares)
+// Add this before server.use(router)
+server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
+    '/product/:resource/:id/show': '/:resource/:id'
+}))
+server.use(router)
+server.listen(3000, () => {
+    console.log('JSON Server is running')
+})
 
 // Export the Server API
-module.exports = server;
+module.exports = server
 
 // Used reference from this repo: https://github.com/SofiDevO/alurageek-API/blob/sofidev/README.md
