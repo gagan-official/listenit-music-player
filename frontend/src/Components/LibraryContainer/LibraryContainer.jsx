@@ -18,7 +18,7 @@ function LibraryContainer(props) {
     <div className={styles.outerLibCont}>
       <span className={styles.heading} customtitle={props.head} />
       <div ref={libContRef} className={`${styles.libCont} ${props.libContClassName}`}>
-        {!loading ? (
+        {!  loading ? (
           props.data.map((i) => <SongComp key={i.id} song={i} />)
         ) : (
           <SongCompLoader />

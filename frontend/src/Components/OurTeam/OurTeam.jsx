@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./OurTeam.module.css";
 import { apiURL } from "../../App";
 import localContext from "../../Context/localContext";
+import AnimatedPage from "../AnimatedPage";
+import { Helmet } from "react-helmet";
 
-const OurTeam = (props) => {
+const OurTeam = () => {
   const { loadingState } = useContext(localContext);
   const { loading, setLoading } = loadingState;
   const [teamList, setTeamList] = useState([]);
@@ -28,41 +30,49 @@ const OurTeam = (props) => {
 
   // console.log(teamList);
   return (
-    <div className={styles.ourTeamCont} style={{ ...props.contStyle }}>
+    <AnimatedPage className={styles.ourTeamCont}>
+      <Helmet>
+        <title>Musixera | Meet the Developer</title>
+      </Helmet>
+      <h1 className={styles.heading}>Meet the Developer</h1>
       {!loading ? (
-        teamList.map((list) => (
-          <div key={list.id} className={styles.ourTeamCard}>
-            <div className={styles.content}>
-              <span>
-                <strong>Name:</strong> {list.name}
-              </span>
-              <span>
-                <strong>Course:</strong> {list.course}
-              </span>
-              <span>
-                <strong>Roll No:</strong> {list.rollNumber}
-              </span>
-              <span>
-                <strong>Role in Project:</strong> {list.role}
-              </span>
-            </div>
-            <img
-              className={styles.ourTeamCardImg}
-              src={list.url}
-              alt="Team Pictures"
-            />
-          </div>
-        ))
+        teamList.map(
+          (list) =>
+            list.id === 1 && (
+              <div key={list.id} className={styles.ourTeamCard}>
+                <div className={styles.content}>
+                  <span>
+                    <strong>Name:</strong> {list.name}
+                  </span>
+                  <span>
+                    <strong>Course:</strong> MCA 4th Semester
+                  </span>
+                  <span>
+                    <strong>Roll No:</strong> {list.rollNumber}
+                  </span>
+                  {/* <span>
+                    <strong>Role in Project:</strong> {list.role}
+                  </span> */}
+                </div>
+                <img
+                  className={styles.ourTeamCardImg}
+                  src={list.url}
+                  alt="Team Pictures"
+                />
+              </div>
+            )
+        )
       ) : (
         <OurTeamLoader />
       )}
-    </div>
+    </AnimatedPage>
   );
 };
 
 export const OurTeamLoader = () => {
   const multiLoaders = [1, 2, 3, 4];
-  return multiLoaders.map((items) => (
+  const loader = [1];
+  return loader.map((items) => (
     <div key={items} className={styles.ourTeamCard}>
       <div className={`${styles.content} ${styles.loadingContent}`}>
         {multiLoaders.map((items) => (

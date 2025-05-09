@@ -4,6 +4,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.heading {
+    color: var(--iconColor);
+    margin-bottom: 1rem;
 }
 .ourTeamCard {
     display: flex;
@@ -14,13 +23,15 @@
     background-color: var(--cardBgc);
     outline: 1px solid var(--cardBgc);
     width: 100%;
-    /* max-width: 500px; */
     min-height: 13rem;
     height: fit-content;
     padding: 1rem 1.5rem;
     border-radius: 10px;
     transition: .2s;
     cursor: pointer;
+
+    /* Remove this in grid container */
+    max-width: 500px;
 }
 .ourTeamCard:nth-of-type(even) {
     background-image: conic-gradient(from 45deg at 10%, var(--pageBackgroundColor) 90deg, #0000 0);

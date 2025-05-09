@@ -38,7 +38,7 @@ const Header = () => {
     <nav className={styles.nav}>
       <ul>
         <span>
-          <li>listenIt</li>
+          <li>Musixera</li>
           {!maxWidth600 && (
             <li title="Home">
               <Link to="/">
@@ -78,15 +78,15 @@ const Header = () => {
 
               {/* ------------- Our Team Tab ------------- */}
               <li title="Our Team">
-                <Link to="/ourTeam">
+                <Link to="/meet-developer">
                   <span
                     className={
-                      location.pathname === "/ourTeam"
+                      location.pathname === "/meet-developer"
                         ? styles.active
                         : styles.activeness
                     }
                   >
-                    {location.pathname === "/ourTeam" ? (
+                    {location.pathname === "/meet-developer" ? (
                       <BsInfoCircleFill />
                     ) : (
                       <BsInfoCircle />
@@ -138,13 +138,13 @@ const Header = () => {
           <span
             onClick={() => setBlur(false)}
             className={
-              location.pathname === "/ourTeam"
+              location.pathname === "/meet-developer"
                 ? styles.active2
                 : styles.activeness2
             }
           >
-            <Link to="/ourTeam">
-              {location.pathname === "/ourTeam" ? (
+            <Link to="/meet-developer">
+              {location.pathname === "/meet-developer" ? (
                 <BsInfoCircleFill />
               ) : (
                 <BsInfoCircle />

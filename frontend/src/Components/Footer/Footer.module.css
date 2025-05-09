@@ -1,13 +1,63 @@
 .foot{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
     background-color: var(--playerInnerBgc);
+}
+.topCont{
+    display: flex;
+    width: 100%;
     color: var(--iconColor);
-    border-top: 1px solid var(--borderColor);
+    /* border-top: 1px solid var(--borderColor); */
     justify-content: space-between;
-    padding: 1rem;
+    padding: 3rem;
     font-size: 1.25rem;
     gap: 1rem;
+}
+.leftCont{
+    max-width: 30rem;
+}
+.leftCont p{
+    margin-top: .5rem;
+}
+.leftCont p,
+.urls{
+    font-size: .8rem;
+}
+.linksCont{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    --border: 2px;
+    --pl: 10px;
+}
+.linksCont h6{
+    min-width: 10rem;
+    border-left: var(--border) solid;
+    padding-left: var(--pl);
+}
+.urls{
+    color: var(--iconColor);
+    text-decoration: none;
+    padding-left: calc(var(--pl) + var(--border));
+    opacity: .8;
+}
+.urls:hover{
+    opacity: .6;
+}
+
+.bottomCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-top: 1px solid #c4c4c44b;
+    color: var(--iconColor);
+    gap: 3px;
+    font-size: .8rem;
+}
+
+@media only screen and (max-width: 850px) {
+    .topCont{
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
